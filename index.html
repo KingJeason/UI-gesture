@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <style>
+    *{
+   		box-sizing: border-box;
+    }
+    	body{
+    		height: 100%;
+    		width: 100%;
+    		
+    	}
+    #set{
+    	width: 100%;
+    	margin:0 auto;
+    	text-align: center;
+    }
+    </style>
+</head>
+<body>
+<div id="item">
+	<div id="warp">
+	<canvas id="can" width="320" height="400"></canvas>
+	</div>
+	<p>{{info}}</p>
+	<div id="sel">
+		<input type="radio" name="checkbox1" value="set" @click="sel1" checked> 设置密码 
+		<input type="radio" name="checkbox1" value="test" @click="sel2"> 验证密码
+	</div>
+	<div v-if="checked" id="set">
+		<button @click="gogogo">重试</button>
+		<button v-if="success" :disabled="ok" @click="init">继续</button>
+		<button v-else @click="init2">完成</button>
+	</div>
+	<div v-else id="test">
+		<p>哈哈哈</p>
+	</div>
+	
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script src="event.js"></script>
+</body>
+</html>
