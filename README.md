@@ -10,6 +10,7 @@
 * Pointarr:数组,保存的是9个圆心的坐标.
 * resarr: 数组,保存的是密码的走势.
 * resarr2: 数组,在设置密码时,判断resarr2是否等于resarr来判断两次密码是否一样
+* checked: 当为true时,是设置密码的选项, 当为false是验证密码的选项
 #### init函数
 在Vue的mounted的函数里执行,相当于流程的开始.
 ####creatPoint函数
@@ -21,4 +22,10 @@
 #### Draw函数
 利用touchPoint是否为null来画最后一条线.
 然后通过canvas来画9个圆
-函数流程
+### 大致流程
+其实最主要的还是touchstart,touchmove,touchend这三个事件
+touchstart: 触摸刚开始时,进行 judge判断.若在园内,则push
+touchmove: EventUtil.preventDefault(event);是为了防止滑动.然后也进行judge判断.最后根据resarr的Point来进行lineTo.
+touchend: 这是关键,流程图如下:
+![](http://i2.muimg.com/567571/c98a52704a940544.png)
+
